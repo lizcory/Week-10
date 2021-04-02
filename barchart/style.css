@@ -1,0 +1,28 @@
+.container {
+    width: 1000px;
+    margin: auto;
+}
+
+text {
+    font-family: sans-serif;
+    font-size: 10px;
+}
+
+text.title {
+    font-size: 14px;
+    text-anchor: middle;
+    font-weight: bold;
+    transform: translate(0, 7px);
+    opacity: 0.8;
+}
+
+g.axis-y circle {
+    fill: none;
+    stroke: rgba(180,180,180);
+    stroke-width: 1;
+}
+
+g.axis-y text {
+    fill: rgba(50,50,50);
+    font-weight: normal;
+}
