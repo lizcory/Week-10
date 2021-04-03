@@ -18,7 +18,7 @@ function Donut() {
     this.selection = function () {
         if (arguments.length > 0) {
             this._sel = arguments[0];
-            return this;
+            // return this;
         }
         return this._sel;
     };
@@ -70,15 +70,15 @@ function Donut() {
             .attr('d', arc)
             .attr('fill', d => this._colorScale(d.data.key));
         
-        // g.selectAll('text')
-        //     .data(d => [d])
-        //     .join('text')
-        //     .attr('transform', d => {
-        //         let centroid = arc.centroid(d);
-        //         return `translate(${centroid[0]}, ${centroid[1]})`;
-        //     })
-        //     .attr('text-anchor', 'middle')
-        //     .text(d => d.data.key);
+        g.selectAll('text')
+            .data(d => [d])
+            .join('text')
+            .attr('transform', d => {
+                let centroid = arc.centroid(d);
+                return `translate(${centroid[0]}, ${centroid[1]})`;
+            })
+            .attr('text-anchor', 'middle')
+            .text(d => d.data.key);
         
         this._sel
             .selectAll('text.title')

@@ -39,8 +39,36 @@ d3.csv('data/Pokemon_subset.csv', function(d) {
 })
 .then(function(data) {
     data = data.sort((a, b) => a.total < b.total);
+
+    console.log(data);
+
+    data.forEach((pokemon, index) => {
+
+        let pie = new Pie();
+
+        // let pie = new Donut();
+
+
+        let position = positionPieChart(index);
+        let g = containerG
+            .append('g')
+            .attr('transform', `translate(${position})`);
+
+        pie.data(pokemon)
+            .colorScale(colorScale)
+            .selection(g)
+            .padding(padding);
+
+        pie.draw();
+
+    });
+
+
+    
+
 });
 
+// we want to make our pies in a grid -- calculate position based on index
 function positionPieChart(index) {
     let radius = size.w/10 - padding;
     let m = index*2 + 1; // multiplier

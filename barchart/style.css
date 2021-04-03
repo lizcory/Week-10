@@ -25,4 +25,6 @@ g.axis-y circle {
 g.axis-y text {
     fill: rgba(50,50,50);
     font-weight: normal;
+    stroke: white;
+    stroke-width: 1px;
 }
